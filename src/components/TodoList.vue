@@ -1,6 +1,17 @@
 <template>
   <div class="ToDoList">
     <h1 v-html="title">My TodoList</h1>
+    <div>
+      <input name="" type="text" value="" v-model="newItem" />
+      <button @click="addNewItem">添加</button>
+    </div>
+    <ul>
+      <li v-for="item in items" :key="item.id">
+        <!-- 代办事项 -->
+        <span v-text="item.title"></span>
+        <button v-on:click="toggleFinish(item)">完成</button>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -9,8 +20,30 @@
     name: 'ToDoList',
     data() {
       return {
+        id: 0,
+        newItem: '',
         title: '<span></span> this is a todo list',
+        items: [],
       };
+    },
+    methods: {
+      toggleFinish(recycleItem) {
+        console.log(recycleItem.id);
+        this.items.forEach((item, index) => {
+          if (item.id === recycleItem.id) {
+            this.items.splice(index, 1);
+          }
+        });
+        console.log(this.items);
+      },
+      addNewItem() {
+        this.items.push({
+          id: this.id,
+          title: this.newItem,
+        });
+        this.id++;
+        this.newItem = '';
+      },
     },
   };
 </script>
@@ -25,8 +58,7 @@
     padding: 0;
   }
   li {
-    display: inline-block;
-    margin: 0 10px;
+    margin-top: 10px;
   }
   a {
     color: #42b983;
