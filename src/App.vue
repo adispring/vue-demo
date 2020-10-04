@@ -18,6 +18,11 @@
         {{ a.user1.firstName }}
       </template>
     </CurrentUser>
+    <ScopeSlot>
+      <template v-slot:default="slotProps">
+        {{ slotProps.student.id }}
+      </template>
+    </ScopeSlot>
   </div>
 </template>
 
@@ -28,6 +33,7 @@ import MixinDemo from './components/MixinDemo.vue';
 import SlotDemo from './components/SlotDemo.vue';
 import SubmitButton from './components/submit-button.vue';
 import CurrentUser from './components/CurrentUser.vue';
+import ScopeSlot from './components/ScopeSlot.vue';
 
 export default {
   name: 'App',
@@ -38,17 +44,15 @@ export default {
     SlotDemo,
     SubmitButton,
     CurrentUser,
+    ScopeSlot,
   },
-  data: () => ({
-    user: {
-      name: 'adi',
-    },
-    slotProps: {
+  data() {
+    return {
       user: {
-        firstName: '第一名称',
+        name: 'adi',
       },
-    },
-  }),
+    };
+  },
 };
 </script>
 
