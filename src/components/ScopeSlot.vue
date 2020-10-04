@@ -1,6 +1,7 @@
 <template>
   <div>
     <slot v-bind:student="student">{{ student.name }}</slot>
+    <slot name="teacher" v-bind:t="teacher">{{ teacher.name }}</slot>
   </div>
 </template>
 
@@ -11,6 +12,10 @@ export default {
       student: {
         name: 'zengdi',
         id: 12306,
+      },
+      teacher: {
+        name: 'wang',
+        id: 12315,
       },
     };
   },

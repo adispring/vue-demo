@@ -19,8 +19,11 @@
       </template>
     </CurrentUser>
     <ScopeSlot>
-      <template v-slot:default="slotProps">
+      <template v-slot="slotProps">
         {{ slotProps.student.id }}
+      </template>
+      <template v-slot:teacher="slotProps">
+        {{ slotProps.t.id }}
       </template>
     </ScopeSlot>
   </div>
