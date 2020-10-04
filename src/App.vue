@@ -26,6 +26,9 @@
         {{ slotProps.t.id }}
       </template>
     </ScopeSlot>
+    <ScopeSlot v-slot="slotProps">
+      {{ slotProps.student.gender }}
+    </ScopeSlot>
   </div>
 </template>
 

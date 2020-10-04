@@ -10,12 +10,14 @@ export default {
   data: () => {
     return {
       student: {
-        name: 'zengdi',
+        name: 'wangzengdi',
         id: 12306,
+        gender: 'male',
       },
       teacher: {
-        name: 'wang',
+        name: 'Yuri',
         id: 12315,
+        gender: 'female',
       },
     };
   },
