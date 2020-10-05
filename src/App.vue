@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <BaseLayout>
-      <template #[baseName]> This is Header </template>
-    </BaseLayout>
-    <button @click="handleClick">按钮</button>
+    <SlotTodoList
+      :filteredTodos="filteredTodos"
+      :toggle="toggleTodo"
+    ></SlotTodoList>
   </div>
 </template>
 
 <script type="text/babel">
-import BaseLayout from './components/BaseLayout.vue';
+import SlotTodoList from './components/SlotTodoList.vue';
 
 export default {
   name: 'App',
   components: {
-    BaseLayout,
+    SlotTodoList,
   },
   data() {
     return {
@@ -21,11 +21,39 @@ export default {
       user: {
         name: 'adi',
       },
+      todoList: [
+        {
+          id: 1,
+          text: '学习 vue',
+          done: false,
+        },
+        {
+          id: 2,
+          text: 'vue 进阶',
+          done: false,
+        },
+        {
+          id: 3,
+          text: '精通 vue',
+          done: false,
+        },
+      ],
     };
+  },
+  computed: {
+    filteredTodos: function () {
+      console.log(this.todoList);
+      return this.todoList.filter((item) => !item.done);
+    },
   },
   methods: {
     handleClick() {
       console.log(`点击按钮：${this.user.name}`);
+    },
+    toggleTodo(id) {
+      const index = this.todoList.findIndex((item) => item.id === id);
+      const isDone = this.todoList[index].done;
+      this.todoList[index].done = !isDone;
     },
   },
 };
