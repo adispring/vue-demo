@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <BaseLayout>
-      <template v-slot:[baseName]> This is Header </template>
+      <template #[baseName]> This is Header </template>
     </BaseLayout>
     <button @click="handleClick">按钮</button>
   </div>
