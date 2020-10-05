@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <SlotTodoList
-      :filteredTodos="filteredTodos"
-      :toggle="toggleTodo"
-    ></SlotTodoList>
+    <SlotTodoList :filteredTodos="todoList" :toggle="toggleTodo">
+      <template v-slot:todo="{ todo }">
+        <span v-if="todo.done">✅</span>
+        {{ todo.text }}
+      </template>
+    </SlotTodoList>
   </div>
 </template>
 

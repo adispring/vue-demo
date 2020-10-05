@@ -5,7 +5,7 @@
       v-bind:key="todo.id"
       @click="toggle(todo.id)"
     >
-      {{ todo.text }}
+      <slot name="todo" v-bind:todo="todo">{{ todo.text }}</slot>
     </li>
   </ul>
 </template>
