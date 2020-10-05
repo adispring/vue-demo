@@ -1,16 +1,24 @@
 <template>
   <div id="app">
-    <DynamicParam></DynamicParam>
+    <BaseLayout>
+      <template v-slot:header>
+        <h1>This is Header</h1>
+      </template>
+      This is content
+      <template v-slot:footer>
+        <h2>This is Footer</h2>
+      </template>
+    </BaseLayout>
   </div>
 </template>
 
 <script type="text/babel">
-import DynamicParam from './components/DynamicParam.vue';
+import BaseLayout from './components/BaseLayout.vue';
 
 export default {
   name: 'App',
   components: {
-    DynamicParam,
+    BaseLayout,
   },
   data() {
     return {
