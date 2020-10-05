@@ -3,6 +3,7 @@
     <BaseLayout>
       <template v-slot:[baseName]> This is Header </template>
     </BaseLayout>
+    <button @click="handleClick">按钮</button>
   </div>
 </template>
 
@@ -21,6 +22,11 @@ export default {
         name: 'adi',
       },
     };
+  },
+  methods: {
+    handleClick() {
+      console.log(`点击按钮：${this.user.name}`);
+    },
   },
 };
 </script>
