@@ -1,13 +1,7 @@
 <template>
   <div id="app">
     <BaseLayout>
-      <template v-slot:header>
-        <h1>This is Header</h1>
-      </template>
-      This is content
-      <template v-slot:footer>
-        <h2>This is Footer</h2>
-      </template>
+      <template v-slot:[baseName]> This is Header </template>
     </BaseLayout>
   </div>
 </template>
@@ -22,6 +16,7 @@ export default {
   },
   data() {
     return {
+      baseName: 'default',
       user: {
         name: 'adi',
       },
