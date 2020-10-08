@@ -16,51 +16,51 @@
 </template>
 
 <script>
-  export default {
-    name: 'ToDoList',
-    data() {
-      return {
-        id: 0,
-        newItem: '',
-        title: '<span></span> this is a todo list',
-        items: [],
-      };
+export default {
+  name: 'ToDoList',
+  data() {
+    return {
+      id: 0,
+      newItem: '',
+      title: '<span></span> this is a todo list',
+      items: [],
+    };
+  },
+  methods: {
+    toggleFinish(recycleItem) {
+      console.log(recycleItem.id);
+      this.items.forEach((item, index) => {
+        if (item.id === recycleItem.id) {
+          this.items.splice(index, 1);
+        }
+      });
+      console.log(this.items);
     },
-    methods: {
-      toggleFinish(recycleItem) {
-        console.log(recycleItem.id);
-        this.items.forEach((item, index) => {
-          if (item.id === recycleItem.id) {
-            this.items.splice(index, 1);
-          }
-        });
-        console.log(this.items);
-      },
-      addNewItem() {
-        this.items.push({
-          id: this.id,
-          title: this.newItem,
-        });
-        this.id++;
-        this.newItem = '';
-      },
+    addNewItem() {
+      this.items.push({
+        id: this.id,
+        title: this.newItem,
+      });
+      this.id++;
+      this.newItem = '';
     },
-  };
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h3 {
-    margin: 40px 0 0;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    margin-top: 10px;
-  }
-  a {
-    color: #42b983;
-  }
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  margin-top: 10px;
+}
+a {
+  color: #42b983;
+}
 </style>
